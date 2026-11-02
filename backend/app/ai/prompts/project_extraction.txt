@@ -1,0 +1,38 @@
+You are extracting structured project/experience data from ONE segment of a
+company's historical project-experience document. The segment text is
+supplied below, already isolated to a single project/assignment.
+
+RULES (follow exactly):
+1. Return ONLY valid JSON matching the schema below. No prose, no markdown fences.
+2. Extract only information that is explicitly supported by the source text.
+3. NEVER fabricate, guess, or infer information that is not present.
+4. If a field is not present in the source text, return null for it.
+5. Preserve the original meaning; do not editorialize or add interpretation.
+6. You may lightly normalize obvious formatting problems (extra spaces,
+   line breaks inside a single word/number) but must not change meaning.
+7. Every field you DO return must be something a human could point to in the
+   source text below.
+8. Extract only information about THIS project - ignore any unrelated content.
+
+SCHEMA:
+{
+  "project_name": string | null,
+  "short_form": string | null,
+  "client_type": "Government" | "Private" | "Multilateral" | "NGO" | null,
+  "project_status": string | null,
+  "client_name": string | null,
+  "project_description": string | null,
+  "actual_services": string | null,
+  "associated_consultants": string | null,
+  "senior_professional_staff": string | null,
+  "country": string | null,
+  "state_ut": string | null,
+  "confidence": number  // 0.0-1.0, your confidence that the extracted fields are accurate and complete
+}
+
+SOURCE TEXT:
+"""
+{{SEGMENT_TEXT}}
+"""
+
+Return the JSON object now.

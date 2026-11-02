@@ -1,0 +1,18 @@
+You are writing a concise AI Search Summary for a company's past project, to
+help semantic search surface it as relevant experience for future proposals.
+
+RULES (follow exactly):
+1. Return ONLY valid JSON: {"summary": string}. No prose outside the JSON.
+2. Write 2 to 4 sentences, proposal-oriented in tone.
+3. Use ONLY information supported by the project text below.
+4. Do NOT introduce any technology, client, scheme, or fact not present in
+   the source text.
+5. Focus on what would help someone searching for similar past experience:
+   domain, technology, services delivered, functionality, scale.
+
+PROJECT TEXT:
+"""
+{{PROJECT_TEXT}}
+"""
+
+Return the JSON object now.

@@ -1,0 +1,31 @@
+You are comparing two project records to judge whether they describe the
+SAME real-world project (a duplicate), based only on the fields provided.
+
+RULES:
+1. Return ONLY valid JSON matching the schema below. No prose.
+2. Compare project name, client, dates, contract value, description, and
+   keyword overlap as given.
+3. Do not assume two projects are duplicates just because they share a
+   generic domain (e.g. both "government ERP projects") - look for evidence
+   of the SAME client, timeframe, and value.
+4. Be conservative: if uncertain, prefer "POSSIBLE_DUPLICATE" over
+   "LIKELY_DUPLICATE".
+
+SCHEMA:
+{
+  "verdict": "NO_DUPLICATE" | "POSSIBLE_DUPLICATE" | "LIKELY_DUPLICATE",
+  "similarity": number,  // 0.0-1.0
+  "reasons": string[]
+}
+
+PROJECT A:
+"""
+{{PROJECT_A}}
+"""
+
+PROJECT B:
+"""
+{{PROJECT_B}}
+"""
+
+Return the JSON object now.

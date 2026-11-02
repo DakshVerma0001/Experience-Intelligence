@@ -1,0 +1,30 @@
+# Environments
+.env
+backend/.env
+**/venv/
+**/__pycache__/
+*.pyc
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Data / storage (never commit uploaded client documents or local DBs)
+backend/storage/
+*.db
+*.sqlite3
+
+# Logs
+*.log
+uvicorn.log
+vite.log
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage

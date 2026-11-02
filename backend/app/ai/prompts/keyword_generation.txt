@@ -1,0 +1,37 @@
+You are generating search keywords for a company's past project, so future
+staff can find relevant experience when writing new proposals.
+
+RULES (follow exactly):
+1. Return ONLY valid JSON: a list of 5 to 15 keyword objects. No prose.
+2. Every keyword MUST be directly supported by the project text supplied below.
+   Do not invent technologies, products, or terms that are not mentioned or
+   clearly implied by explicit content (e.g. do not add "ArcGIS" just because
+   "GIS" is mentioned, do not add "Android"/"iOS" just because "mobile
+   application" is mentioned, unless those specific terms appear).
+3. Avoid generic/low-value terms such as: project, company, client, India,
+   work - unless they are genuinely distinguishing for this project.
+4. Cover, where genuinely present in the text: domain, industry, technology,
+   service type, functionality, government scheme/program name, integration,
+   methodology, geography, compliance/regulatory framework, project type.
+5. For each keyword provide a short, useful description of what it means in
+   THIS project's context, plus a category, plus any aliases (only if the
+   alias also appears in or is a standard synonym of the exact term used).
+
+SCHEMA:
+{
+  "keywords": [
+    {
+      "keyword": string,
+      "category": string,  // e.g. "Technology" | "Domain" | "Service" | "Geography" | "Compliance" | "Methodology"
+      "description": string,
+      "aliases": string[]
+    }
+  ]
+}
+
+PROJECT TEXT:
+"""
+{{PROJECT_TEXT}}
+"""
+
+Return the JSON object now.
